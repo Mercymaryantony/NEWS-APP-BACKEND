@@ -14,3 +14,13 @@ app.post("/add",(req,res)=>{
     news.save()
     res.json({"status":"added"})
 })
+
+app.post("/view",(req,res)=>{
+    newsmodel.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch((error)=>{
+        res.send("error")
+    })
+})
