@@ -35,3 +35,16 @@ app.post("/search",(req,res)=>{
         res.send("error")
     })
 })
+
+app.post("/delete",(req,res)=>{
+    let input=req.body
+    newsmodel.findByIdAndDelete(input._id).then(
+        (response)=>{
+            res.json({"status":"deleted"})
+        }
+    ).catch(
+        (error)=>{
+            res.json({"status":"error"})
+        }
+    )
+})
