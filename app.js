@@ -24,3 +24,14 @@ app.post("/view",(req,res)=>{
         res.send("error")
     })
 })
+
+app.post("/search",(req,res)=>{
+    let input=req.body
+    newsmodel.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch((error)=>{
+        res.send("error")
+    })
+})
