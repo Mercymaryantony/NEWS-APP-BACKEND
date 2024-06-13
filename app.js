@@ -27,7 +27,7 @@ app.post("/view",(req,res)=>{
 
 app.post("/search",(req,res)=>{
     let input=req.body
-    newsmodel.find().then(
+    newsmodel.find(input).then(
         (data)=>{
             res.json(data)
         }
@@ -47,4 +47,7 @@ app.post("/delete",(req,res)=>{
             res.json({"status":"error"})
         }
     )
+})
+app.listen(8000,()=>{
+    console.log("server started")
 })
